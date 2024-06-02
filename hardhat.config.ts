@@ -37,6 +37,11 @@ const config: HardhatUserConfig = {
       chainId: 421613,
       accounts: process.env.MAINNET_PRIVATE_KEY !== undefined ? [process.env.MAINNET_PRIVATE_KEY] : [],
     },
+    blast: {
+      url: "http://testnet-rpc.blastblockchain.com",
+      chainId: 23888,
+      accounts: process.env.MAINNET_PRIVATE_KEY !== undefined ? [process.env.MAINNET_PRIVATE_KEY] : [],
+    },
   },
   solidity: {
     version: "0.8.18",
@@ -67,7 +72,6 @@ const config: HardhatUserConfig = {
       arbitrumGoerli: process.env.ETHERSCAN_API_KEY!,
     },
   },
-  // This fully resolves paths for imports in the ./lib directory for Hardhat
   preprocess: {
     eachLine: (hre) => ({
       transform: (line: string) => {
